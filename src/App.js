@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import "./App.css";
 
-const BACKEND_URL = "https://atipn-backend.onrender.com";
+/**
+ * IMPORTANT:
+ * In production (Vercel), this will come from Environment Variable
+ * In local dev, fallback is used
+ */
+const API_URL =
+  process.env.REACT_APP_BACKEND_URL ||
+  "https://atipn-backend.onrender.com";
 
 function App() {
   const [inquiryMsg, setInquiryMsg] = useState("");
   const [complaintMsg, setComplaintMsg] = useState("");
 
+  /* ------------------ NEW CONNECTION ------------------ */
   const handleInquiry = async (e) => {
     e.preventDefault();
 
@@ -16,17 +24,29 @@ function App() {
       address: e.target.address.value,
     };
 
-    const res = await fetch(`${BACKEND_URL}/api/inquiry`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    try {
+      const res = await fetch(`${API_URL}/api/inquiry`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data), // ✅ FIXED
+      });
 
-    const result = await res.json();
-    setInquiryMsg(result.success ? "Inquiry submitted successfully" : "Error");
-    e.target.reset();
+      const result = await res.json();
+
+      if (result.success) {
+        setInquiryMsg("Inquiry submitted successfully ✅");
+        e.target.reset();
+      } else {
+        setInquiryMsg("Something went wrong ❌");
+      }
+    } catch (error) {
+      setInquiryMsg("Server not reachable ❌");
+    }
   };
 
+  /* ------------------ COMPLAINT ------------------ */
   const handleComplaint = async (e) => {
     e.preventDefault();
 
@@ -35,15 +55,26 @@ function App() {
       issue: e.target.issue.value,
     };
 
-    const res = await fetch(`${BACKEND_URL}/api/complaint`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    try {
+      const res = await fetch(`${API_URL}/api/complaint`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    const result = await res.json();
-    setComplaintMsg(result.success ? "Complaint submitted successfully" : "Error");
-    e.target.reset();
+      const result = await res.json();
+
+      if (result.success) {
+        setComplaintMsg("Complaint submitted successfully ✅");
+        e.target.reset();
+      } else {
+        setComplaintMsg("Something went wrong ❌");
+      }
+    } catch (error) {
+      setComplaintMsg("Server not reachable ❌");
+    }
   };
 
   return (
