@@ -193,6 +193,9 @@ export default function App() {
       >
         💬
       </a>
+
+      {/* VERCEL ANALYTICS */}
+      <Analytics />
     </>
   );
 }
