@@ -293,7 +293,7 @@ export default function App() {
 
           <div className="forms">
             <form onSubmit={submitInquiry}>
-              <h3>New Connection</h3>
+              <h3>New Connection Enquiry or Complaint</h3>
               <input name="name" placeholder="Name" required />
               <input name="mobile" placeholder="Mobile" required />
               <textarea name="address" placeholder="Address" required />
@@ -301,7 +301,7 @@ export default function App() {
                 {loading ? "Submitting..." : "Submit"}
               </button>
             </form>
-
+{/* 
             <form onSubmit={submitComplaint}>
               <h3>Customer Complaint</h3>
               <input name="customerId" placeholder="Customer ID" required />
@@ -309,7 +309,7 @@ export default function App() {
               <button disabled={loading}>
                 {loading ? "Submitting..." : "Submit"}
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </section>
