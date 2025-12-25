@@ -343,7 +343,7 @@ export default function App() {
     <div className="footer-contact">
       <h4>Get in touch</h4>
       <p>📞 +91 9146034000</p>
-      <p>✉️ support@akolatelecom.in</p>
+      <p>✉️ enquiry.atin@gmail.com</p>
     </div>
 
     <div className="footer-links">
