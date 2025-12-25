@@ -172,8 +172,8 @@ export default function App() {
 
         <iframe
           title="Akola Office Location"
-          src="https://www.google.com/maps?q=Akola%20444001&output=embed"
-        />
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1866.017613182943!2d76.99652100033437!3d20.708794106721605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd731ef157873f1%3A0x89ef9c681712ac03!2sakola%20television%20network%20(ATN)!5e0!3m2!1sen!2sin!4v1766336601565!5m2!1sen!2sin"
+          />
       </section>
 
       {/* FOOTER */}
