@@ -20,37 +20,41 @@ export const Gallery = () => {
     notify("Submitting request...");
 
     try {
-      let url = "";
       let payload = {};
 
       if (type === "connection") {
-        url = `${API_URL}/api/inquiry`;
         payload = {
+          type: "connection",
           name: e.target.name.value,
           mobile: e.target.mobile.value,
+          email: e.target.email.value,
           address: e.target.address.value,
         };
       } else {
-        url = `${API_URL}/api/complaint`;
         payload = {
-          customerId: e.target.customerId.value,
+          type: "complaint",
+          name: e.target.name.value,
+          mobile: e.target.mobile.value,
+          email: e.target.email.value,
           issue: e.target.issue.value,
         };
       }
 
-      const res = await fetch(url, {
+      const res = await fetch(`${API_URL}/api/inquiry`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       const data = await res.json();
-      data.success
-        ? notify("Submitted successfully ✅")
-        : notify("Submission failed ❌");
 
-      e.target.reset();
-    } catch {
+      if (data.success) {
+        notify("Submitted successfully ✅");
+        e.target.reset();
+      } else {
+        notify("Submission failed ❌");
+      }
+    } catch (err) {
       notify("Server error ❌");
     }
 
@@ -86,25 +90,25 @@ export const Gallery = () => {
         {/* FORM CARD */}
         <div className="form-card">
           <form onSubmit={handleSubmit}>
+            {/* COMMON FIELDS */}
+            <input name="name" placeholder="Full Name" required />
+            <input name="mobile" placeholder="Mobile Number" required />
+            <input
+              name="email"
+              type="email"
+              placeholder="Email Address"
+              required
+            />
+
+            {/* TYPE SPECIFIC */}
             {type === "connection" ? (
-              <>
-                <input name="name" placeholder="Full Name" required />
-                <input name="mobile" placeholder="Mobile Number" required />
-                <textarea name="address" placeholder="Address" required />
-              </>
+              <textarea name="address" placeholder="Address" required />
             ) : (
-              <>
-                <input
-                  name="customerId"
-                  placeholder="Customer ID"
-                  required
-                />
-                <textarea
-                  name="issue"
-                  placeholder="Describe your issue"
-                  required
-                />
-              </>
+              <textarea
+                name="issue"
+                placeholder="Describe your issue"
+                required
+              />
             )}
 
             <button disabled={loading}>
