@@ -61,6 +61,16 @@ export const Contact = (props) => {
                   enquiry.atin@gmail.com
                 </p>
               </div>
+              {/* QR CODE */}
+              <div className="qr-box">
+                <img
+                  src="/qr-website.png"
+                  alt="Website QR Code"
+                  className="qr-image"
+                />
+                <p className="qr-label">Website</p>
+              </div>
+
             </div>
 
           </div>

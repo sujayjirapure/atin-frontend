@@ -438,3 +438,37 @@ html, body {
     margin-right: 20px; /* space from right edge */
   }
 }
+
+/* ===== QR CODE SECTION (CONTACT RIGHT GAP) ===== */
+.qr-box {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.qr-image {
+  width: 140px;          /* controls size */
+  max-width: 100%;
+  height: auto;
+  padding: 10px;
+  border-radius: 0px;
+}
+
+.qr-label {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+
+  .contact-info {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .qr-image {
+    width: 120px;
+  }
+}
