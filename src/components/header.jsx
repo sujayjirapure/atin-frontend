@@ -9,9 +9,9 @@ export const Header = (props) => {
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text">
                 <h1>
-                  Reliable Broadband in Akola
-                  <span></span>
-                </h1>
+  Reliable Broadband <br /> in Akola
+</h1>
+
                
               </div>
             </div>

@@ -1,20 +1,11 @@
-@media screen and (max-width: 400px) {
-  #features {
-    padding: 20px;
-    width: 111%;
-  }
-  #about,
-  #services,
-  #testimonials,
-  #team,
-  #contact,
-  #footer {
-    width: 111%;
-  }
+/* ===== GLOBAL MOBILE FIX ===== */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
-  #portfolio {
-    width: 110%;
-  }
+* {
+  box-sizing: border-box;
 }
 
 
@@ -186,6 +177,63 @@
   line-height: 60px; /* SAME as navbar height */
 }
 
+/* ===== NAVBAR MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+  .navbar {
+    min-height: 56px;
+  }
+
+  .navbar-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Logo resize */
+  .header-logo {
+    height: 42px;
+  }
+
+  /* Toggle button fix */
+  .navbar-toggle {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  /* Dropdown menu background */
+  .navbar-collapse {
+    background: #ffffff;
+    padding: 10px 0;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  /* Stack menu items */
+  .navbar-nav {
+    margin: 0;
+  }
+
+  .navbar-nav > li > a {
+    line-height: normal;
+    padding: 12px 20px;
+    font-size: 15px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+}
+/* ===== SECTION SPACING MOBILE ===== */
+@media (max-width: 768px) {
+
+  section,
+  #about,
+  #services,
+  #contact,
+  #features,
+  #portfolio,
+  #footer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
 
 /* ===== Modern Contact Section ===== */
 .contact-modern {
@@ -282,4 +330,111 @@
 .whatsapp-float:hover {
   transform: scale(1.08);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+
+@media (max-width: 768px) {
+
+  .contact-section {
+    padding: 50px 0;
+  }
+
+  .contact-form,
+  .form-card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .toggle-pill {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+
+/* ===== NAVBAR LEFT HAMBURGER / RIGHT LOGO (MOBILE) ===== */
+@media (max-width: 768px) {
+
+  .navbar-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse; /* LOGO RIGHT */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-toggle {
+    float: none;
+    margin: 0;
+    padding: 8px 10px;
+  }
+
+  .navbar-brand {
+    float: none;
+    padding: 0;
+  }
+
+  .header-logo {
+    height: 40px;
+  }
+}
+/* ===== HEADER / HERO MOBILE FIX ===== */
+#header {
+  position: relative;
+}
+
+#header .intro {
+  padding-top: 80px; /* space for fixed navbar */
+}
+
+.intro-text h1 {
+  font-size: 56px;
+  line-height: 1.1;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+
+  #header .intro {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .intro-text {
+    text-align: center;
+  }
+
+  .intro-text h1 {
+    font-size: 30px;
+    line-height: 1.25;
+    margin: 0 auto;
+    max-width: 90%;
+    word-break: break-word;
+  }
+}
+
+
+/* ===== SPACE BETWEEN HAMBURGER & LOGO (MOBILE) ===== */
+@media (max-width: 768px) {
+
+  .navbar-header {
+    padding: 0 60px; /* space from left & right edges */
+  }
+
+  .navbar-toggle {
+    margin-left: 30px; /* space from left edge */
+  }
+
+  .navbar-brand {
+    margin-right: 20px; /* space from right edge */
+  }
 }
